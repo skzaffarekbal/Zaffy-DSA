@@ -38,6 +38,18 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 /*
 First Solution
 Time complexity - O(n2)
+
+In this solution Just running loop over array then running another loop from n+1 index if our condition satisfy then return the pair
+
+nums = [2, 7, 4, 8, 3, 5], target = 8
+
+    2 | 7 | 4 | 8 | 3 | 5
+2   * | + | + | + | + | +
+7   * | * | + | + | + | +
+4   * | * | * | + | + | +
+8   * | * | * | * | + | +
+3   * | * | * | * | * | 8
+5   * | * | * | * | * | *
 */
 
 /**
@@ -58,6 +70,18 @@ var twoSum = function(nums, target) {
 /*
 Second Solution
 Time complexity - O(n)
+
+In this Solution, maintain a memory in key value pair where store each checked value and its index in that array. For each value in the array subtract with target and check memory if that wanting value on the memory then it return both index otherwise save value and index on memory.
+
+nums = [2, 7, 4, 8, 3, 5], target = 8
+
+index   value   wanting     memory
+0       2       6           {2: 0}
+1       7       1           {2: 0, 7: 1}
+2       4       4           {2: 0, 7: 1, 4: 2}
+3       8       0           {2: 0, 7: 1, 4: 2, 8: 3}
+4       3       5           {2: 0, 7: 1, 4: 2, 8: 3, 3: 4}
+5       5       3           {2: 0, 7: 1, 4: 2, 8: 3, 3: 4} => return [4, 5] 
 */
 
 /**
@@ -69,8 +93,8 @@ var twoSum = function(nums, target) {
     let memory = {};
     let numLength = nums.length;
     for(let i = 0; i < numLength; i++){
-        let wantting = target - nums[i];
-        if(memory.hasOwnProperty(wantting)) return [memory[wantting], i]
+        let wanting = target - nums[i];
+        if(memory.hasOwnProperty(wanting)) return [memory[wanting], i]
         else memory[nums[i]] = i;
     }
 };
