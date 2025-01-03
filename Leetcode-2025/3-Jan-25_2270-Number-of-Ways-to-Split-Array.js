@@ -37,6 +37,7 @@ Constraints:
 -105 <= nums[i] <= 105
 */
 
+/* Approach-1 */
 /**
  * @param {number[]} nums
  * @return {number}
@@ -49,5 +50,23 @@ var waysToSplitArray = function(nums) {
         currentSum += nums[i];
         if(currentSum >= (prefixTotalSum - currentSum)) splitCount++;
     }
+    return splitCount;
+};
+
+/* Approach-2 */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var waysToSplitArray = function(nums) {
+    let prefixTotalSum = nums.reduce((acc, cur) => acc + cur, 0);
+    let currentSum = 0
+    let splitCount = nums.reduce((acc, cur, index) => {
+        if (index < nums.length - 1) {
+            currentSum += cur;
+            if(currentSum >= (prefixTotalSum - currentSum)) acc++;
+        }  
+        return acc;
+    }, 0);
     return splitCount;
 };
