@@ -93,3 +93,35 @@ var findThePrefixCommonArray = function (A, B) {
 
   return prefixCommonArray;
 };
+
+// Approach 3
+// Time Complexity: O(n)
+/**
+ * @param {number[]} A
+ * @param {number[]} B
+ * @return {number[]}
+ */
+var findThePrefixCommonArray = function (A, B) {
+  let length = A.length,
+    prefixCommonArray = Array(A.length).fill(0);
+  let aObj = {},
+    bObj = {};
+
+  for (let i = 0; i < length; i++) {
+    aObj[A[i]] = i;
+    bObj[B[i]] = i;
+  }
+
+  for (let i = 0; i < length; i++) {
+    let commonCount = 0;
+    if (A[i] == B[i]) commonCount++;
+    else {
+      if (aObj[B[i]] <= i) commonCount++;
+      if (bObj[A[i]] <= i) commonCount++;
+    }
+    commonCount = i > 0 ? prefixCommonArray[i - 1] + commonCount : commonCount;
+    prefixCommonArray[i] = commonCount;
+  }
+
+  return prefixCommonArray;
+};
