@@ -1,3 +1,5 @@
+// Source: https://leetcode.com/problems/special-array-i/description/?envType=daily-question&envId=2025-02-01
+
 /*
 3151. Special Array I
 

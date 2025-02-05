@@ -1,3 +1,5 @@
+// Source: https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/?envType=daily-question&envId=2025-02-03
+
 /*
 3105. Longest Strictly Increasing or Strictly Decreasing Subarray
 You are given an array of integers nums. Return the length of the longest 

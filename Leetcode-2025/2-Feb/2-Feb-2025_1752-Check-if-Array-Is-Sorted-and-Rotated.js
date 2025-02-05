@@ -1,3 +1,5 @@
+// Source: https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/?envType=daily-question&envId=2025-02-02
+
 /*
 1752. Check if Array Is Sorted and Rotated
 
