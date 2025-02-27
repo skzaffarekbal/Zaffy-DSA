@@ -1,3 +1,5 @@
+// Source: https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/description/?envType=daily-question&envId=2025-02-26
+
 /*
 1749. Maximum Absolute Sum of Any Subarray
 Medium - 1490
