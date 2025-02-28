@@ -108,3 +108,6 @@ class Solution {
     return maxRes;
   }
 }
+
+
+// https://www.geeksforgeeks.org/problems/longest-arithmetic-progression1019/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
