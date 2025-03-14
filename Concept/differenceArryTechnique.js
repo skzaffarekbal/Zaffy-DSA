@@ -58,3 +58,37 @@ console.log(
     ]
   )
 );
+
+/* Difference Array Technique For Subtraction */
+
+function applyDifferenceArray(arr, queries) {
+  let n = arr.length;
+  let diff = new Array(n + 1).fill(0);
+
+  // Step 1: Build the Difference Array for Subtraction
+  queries.forEach(([l, r, value]) => {
+    diff[l] -= value; // Start subtracting
+    if (r + 1 < n) diff[r + 1] += value; // Stop subtracting
+  });
+
+  // Step 2: Build the Final Array Using Prefix Sum
+  let result = [...arr]; // Copy the original array
+  let currentSum = 0;
+
+  for (let i = 0; i < n; i++) {
+    currentSum += diff[i];
+    result[i] += currentSum;
+  }
+
+  return result;
+}
+
+// Example Usage
+let arr = [10, 10, 10, 10, 10];
+let queries = [
+  [1, 3, 2], // Subtract 2 from range [1, 3]
+  [2, 4, 3], // Subtract 3 from range [2, 4]
+  [0, 2, 1], // Subtract 1 from range [0, 2]
+];
+
+console.log(applyDifferenceArray(arr, queries));
