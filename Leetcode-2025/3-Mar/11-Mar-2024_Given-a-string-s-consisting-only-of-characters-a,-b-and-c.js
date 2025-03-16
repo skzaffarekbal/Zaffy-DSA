@@ -3,6 +3,8 @@
 /*
 1358. Number of Substrings Containing All Three Characters
 Medium - 1613
+
+Topics: Hash Table, String, Sliding Window
 Companies: DE Shaw, PayPal
 
 Given a string s consisting only of characters a, b and c.
